@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite errors="0" failures="0" tests="3" skipped="0" name="D:.fredgrttsstuff.GithubProjects.code_with_me.cookbook.bootsttrap_fulltest.test.golden_widget" timestamp="2021-08-30T17:17:21">
+    <properties>
+      <property name="platform" value="vm"/>
+    </properties>
+    <testcase classname="D:.fredgrttsstuff.GithubProjects.code_with_me.cookbook.bootsttrap_fulltest.test.golden_widget" name="Basic Golden Tests  Golden test" time="1.821"/>
+    <testcase classname="D:.fredgrttsstuff.GithubProjects.code_with_me.cookbook.bootsttrap_fulltest.test.golden_widget" name="Basic Golden Tests  DeviceBuilder " time="1.044"/>
+    <testcase classname="D:.fredgrttsstuff.GithubProjects.code_with_me.cookbook.bootsttrap_fulltest.test.golden_widget" name="Multiple Scenarios Multiple Scenarios with onCreate, visually matching unit tests via use cases" time="2.633"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" tests="4" skipped="0" name="D:.fredgrttsstuff.GithubProjects.code_with_me.cookbook.bootsttrap_fulltest.test.widget" timestamp="2021-08-30T17:17:21">
+    <properties>
+      <property name="platform" value="vm"/>
+    </properties>
+    <testcase classname="D:.fredgrttsstuff.GithubProjects.code_with_me.cookbook.bootsttrap_fulltest.test.widget" name="Test my False counter Mock test the fake mock" time="0.025"/>
+    <testcase classname="D:.fredgrttsstuff.GithubProjects.code_with_me.cookbook.bootsttrap_fulltest.test.widget" name="Home Page tests app has title in appbar" time="0.74"/>
+    <testcase classname="D:.fredgrttsstuff.GithubProjects.code_with_me.cookbook.bootsttrap_fulltest.test.widget" name="Home Page tests app has homepage message" time="0.051"/>
+    <testcase classname="D:.fredgrttsstuff.GithubProjects.code_with_me.cookbook.bootsttrap_fulltest.test.widget" name="Home Page tests counter increments smoke test" time="0.126"/>
+  </testsuite>
+</testsuites>
