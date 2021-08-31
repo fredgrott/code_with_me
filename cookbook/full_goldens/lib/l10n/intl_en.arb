@@ -1,0 +1,11 @@
+{
+    "appTitle": "Full Goldens",
+    "@appTitle": {
+        "description": "the app title"
+    },
+    "appHomepageMessage": "You have pushed the button this many times:",
+    "@appHomepageMessage": {
+        "description": "the app homepage message"
+    }
+
+}

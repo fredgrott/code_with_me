@@ -1,0 +1,8 @@
+# see https://github.com/dart-lang/test/blob/master/pkgs/test/doc/configuration.md
+tags: 
+  # evidently we can add tags for non packages if the lib we are using is making use of it 
+  # via their own special annotated tags
+  # golden toolkit doc on setting the tag, see
+  # https://pub.dev/packages/golden_toolkit
+  golden:
+  

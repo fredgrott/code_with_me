@@ -38,7 +38,6 @@ perl C:\ProgramData\chocolatey\lib\lcov\tools\bin\genhtml reports\coverage\lcov.
 
 flutter analyze > reports\analyze_report.txt
 
-
 dartdoc --output reports/docs/api
 dhttpd --path reports/docs/api
 
