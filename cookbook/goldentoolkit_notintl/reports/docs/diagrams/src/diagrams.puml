@@ -1,0 +1,54 @@
+@startuml
+set namespaceSeparator ::
+
+class "goldentoolkit_notintl::app::shared::app_vars.dart::Environment" {
+  +int index
+  {static} +List<Environment> values
+  {static} +Environment dev
+  {static} +Environment staging
+  {static} +Environment prod
+  {static} +Environment vizstory
+}
+
+"goldentoolkit_notintl::app::shared::app_vars.dart::Environment" o-- "goldentoolkit_notintl::app::shared::app_vars.dart::Environment"
+
+class "goldentoolkit_notintl::app::shared::app_vars.dart::Constants" {
+  -Map<String, dynamic> _config
+  +dynamic whereAmI
+  +void setEnvironment()
+  +bool isDev()
+}
+
+class "goldentoolkit_notintl::app::shared::app_vars.dart::_Config" {
+  {static} +Map<String, dynamic> debugConstants
+  {static} +Map<String, dynamic> prodConstants
+  {static} +Map<String, dynamic> qaConstants
+  {static} +Map<String, dynamic> visstoryConstants
+  {static} +String whereAmI
+}
+
+class "goldentoolkit_notintl::app::ui::myapp.dart::MyApp" {
+  +MyHomePage? home
+  +Widget build()
+}
+
+"goldentoolkit_notintl::app::ui::myapp.dart::MyApp" o-- "goldentoolkit_notintl::app::ui::screens::home::myhomepage.dart::MyHomePage"
+
+class "goldentoolkit_notintl::app::ui::screens::home::myhomepage.dart::MyHomePage" {
+  +String title
+  +String message
+  {static} +Key titleKey
+  {static} +Key messageKey
+  +State<MyHomePage> createState()
+}
+
+"goldentoolkit_notintl::app::ui::screens::home::myhomepage.dart::MyHomePage" o-- "flutter::src::foundation::key.dart::Key"
+
+class "goldentoolkit_notintl::app::ui::screens::home::myhomepage.dart::_MyHomePageState" {
+  -int _counter
+  -void _incrementCounter()
+  +Widget build()
+}
+
+
+@enduml

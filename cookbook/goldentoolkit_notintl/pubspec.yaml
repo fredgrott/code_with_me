@@ -1,4 +1,4 @@
-name: bootsttrap_fulltest
+name: goldentoolkit_notintl
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -43,6 +43,7 @@ dev_dependencies:
   dart_code_metrics: ^4.1.0
   golden_toolkit: ^0.10.0
   mocktail: ^0.1.4
+  mockingjay: ^0.1.0
   given_when_then: ^0.2.0
   
 

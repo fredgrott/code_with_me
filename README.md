@@ -12,6 +12,8 @@ I publish articles at my Medium blog:
 
 [Medium Blog](https://fredgrott.medium.com)
 
+[What The Hell Is State Management](https://medium.com/p/what-the-hell-is-state-management-ee49559e6f48)
+
 
 
 

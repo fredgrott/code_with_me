@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite errors="0" failures="0" tests="3" skipped="0" name="D:.fredgrttsstuff.GithubProjects.code_with_me.cookbook.goldentoolkit_notintl.test.golden_widget" timestamp="2021-09-02T00:10:27">
+    <properties>
+      <property name="platform" value="vm"/>
+    </properties>
+    <testcase classname="D:.fredgrttsstuff.GithubProjects.code_with_me.cookbook.goldentoolkit_notintl.test.golden_widget" name="Basic Golden Tests  Matches golden MyHomePage" time="2.052"/>
+    <testcase classname="D:.fredgrttsstuff.GithubProjects.code_with_me.cookbook.goldentoolkit_notintl.test.golden_widget" name="Basic Golden Tests  Matches AppTitle and MyHomePage Message" time="5.01"/>
+    <testcase classname="D:.fredgrttsstuff.GithubProjects.code_with_me.cookbook.goldentoolkit_notintl.test.golden_widget" name="Basic Golden Tests  Goldens Counter Smoke tests Visually" time="2.433"/>
+  </testsuite>
+  <testsuite errors="0" failures="0" tests="4" skipped="0" name="D:.fredgrttsstuff.GithubProjects.code_with_me.cookbook.goldentoolkit_notintl.test.widget" timestamp="2021-09-02T00:10:27">
+    <properties>
+      <property name="platform" value="vm"/>
+    </properties>
+    <testcase classname="D:.fredgrttsstuff.GithubProjects.code_with_me.cookbook.goldentoolkit_notintl.test.widget" name="Test my False counter Mock test the fake mock" time="0.028"/>
+    <testcase classname="D:.fredgrttsstuff.GithubProjects.code_with_me.cookbook.goldentoolkit_notintl.test.widget" name="Home Page tests app has title in appbar" time="1.754"/>
+    <testcase classname="D:.fredgrttsstuff.GithubProjects.code_with_me.cookbook.goldentoolkit_notintl.test.widget" name="Home Page tests app has homepage message" time="0.106"/>
+    <testcase classname="D:.fredgrttsstuff.GithubProjects.code_with_me.cookbook.goldentoolkit_notintl.test.widget" name="Home Page tests counter increments smoke test" time="0.219"/>
+  </testsuite>
+</testsuites>
