@@ -1,0 +1,213 @@
+@startuml
+set namespaceSeparator ::
+
+class "contextual_menu::custom_follower.dart::MyCompositedTransformFollower" {
+  +Alignment childAnchor
+  +Alignment portalAnchor
+  +LayerLink link
+  +Size targetSize
+  +MyRenderFollowerLayer createRenderObject()
+  +void updateRenderObject()
+  +void debugFillProperties()
+}
+
+"contextual_menu::custom_follower.dart::MyCompositedTransformFollower" o-- "flutter::src::painting::alignment.dart::Alignment"
+"contextual_menu::custom_follower.dart::MyCompositedTransformFollower" o-- "flutter::src::rendering::layer.dart::LayerLink"
+"contextual_menu::custom_follower.dart::MyCompositedTransformFollower" o-- "dart::ui::Size"
+
+class "contextual_menu::custom_follower.dart::MyRenderFollowerLayer" {
+  -Alignment _childAnchor
+  -Alignment _portalAnchor
+  -LayerLink _link
+  -Size _targetSize
+  +Alignment childAnchor
+  +Alignment portalAnchor
+  +LayerLink link
+  +Size targetSize
+  +bool alwaysNeedsCompositing
+  +bool sizedByParent
+  +FollowerLayer? layer
+  +void detach()
+  +Matrix4 getCurrentTransform()
+  +bool hitTest()
+  +bool hitTestChildren()
+  +void performResize()
+  +void paint()
+  +void applyPaintTransform()
+  +void debugFillProperties()
+}
+
+"contextual_menu::custom_follower.dart::MyRenderFollowerLayer" o-- "flutter::src::painting::alignment.dart::Alignment"
+"contextual_menu::custom_follower.dart::MyRenderFollowerLayer" o-- "flutter::src::rendering::layer.dart::LayerLink"
+"contextual_menu::custom_follower.dart::MyRenderFollowerLayer" o-- "dart::ui::Size"
+"contextual_menu::custom_follower.dart::MyRenderFollowerLayer" o-- "flutter::src::rendering::layer.dart::FollowerLayer"
+
+class "contextual_menu::main.dart::MyApp" {
+  +Widget build()
+}
+
+class "contextual_menu::main.dart::ContextualMenuExample" {
+  +_ContextualMenuExampleState createState()
+}
+
+class "contextual_menu::main.dart::_ContextualMenuExampleState" {
+  -bool _showMenu
+  +Widget build()
+}
+
+class "contextual_menu::main.dart::Menu" {
+  +List<Widget> children
+  +Widget build()
+}
+
+class "contextual_menu::main.dart::ModalEntry" {
+  +void Function() onClose
+  +Widget menu
+  +bool visible
+  +Widget child
+  +Alignment menuAnchor
+  +Alignment childAnchor
+  +Widget build()
+}
+
+"contextual_menu::main.dart::ModalEntry" o-- "dart::ui::void Function()"
+"contextual_menu::main.dart::ModalEntry" o-- "flutter::src::widgets::framework.dart::Widget"
+"contextual_menu::main.dart::ModalEntry" o-- "flutter::src::painting::alignment.dart::Alignment"
+
+class "contextual_menu::portal.dart::Portal" {
+  +Widget child
+  +_PortalState createState()
+}
+
+"contextual_menu::portal.dart::Portal" o-- "flutter::src::widgets::framework.dart::Widget"
+
+class "contextual_menu::portal.dart::_PortalState" {
+  -_OverlayLink _overlayLink
+  +Widget build()
+}
+
+"contextual_menu::portal.dart::_PortalState" o-- "contextual_menu::portal.dart::_OverlayLink"
+
+class "contextual_menu::portal.dart::_OverlayLink" {
+  +_RenderPortalTheater? theater
+  +Set<RenderBox> overlays
+  +BoxConstraints? constraints
+}
+
+"contextual_menu::portal.dart::_OverlayLink" o-- "contextual_menu::portal.dart::_RenderPortalTheater"
+"contextual_menu::portal.dart::_OverlayLink" o-- "flutter::src::rendering::box.dart::BoxConstraints"
+
+class "contextual_menu::portal.dart::_PortalLinkScope" {
+  -_OverlayLink _overlayLink
+  +bool updateShouldNotify()
+}
+
+"contextual_menu::portal.dart::_PortalLinkScope" o-- "contextual_menu::portal.dart::_OverlayLink"
+
+class "contextual_menu::portal.dart::_PortalTheater" {
+  -_OverlayLink _overlayLink
+  +_RenderPortalTheater createRenderObject()
+  +void updateRenderObject()
+}
+
+"contextual_menu::portal.dart::_PortalTheater" o-- "contextual_menu::portal.dart::_OverlayLink"
+
+class "contextual_menu::portal.dart::_RenderPortalTheater" {
+  -_OverlayLink _overlayLink
+  +_OverlayLink overlayLink
+  +void markNeedsLayout()
+  +void paint()
+  +bool hitTestChildren()
+  +void debugFillProperties()
+}
+
+"contextual_menu::portal.dart::_RenderPortalTheater" o-- "contextual_menu::portal.dart::_OverlayLink"
+
+class "contextual_menu::portal.dart::PortalEntry" {
+  +bool visible
+  +Alignment? portalAnchor
+  +Alignment? childAnchor
+  +Widget? portal
+  +Widget child
+  +Duration? closeDuration
+  +_PortalEntryState createState()
+  +void debugFillProperties()
+}
+
+"contextual_menu::portal.dart::PortalEntry" o-- "flutter::src::painting::alignment.dart::Alignment"
+"contextual_menu::portal.dart::PortalEntry" o-- "flutter::src::widgets::framework.dart::Widget"
+
+class "contextual_menu::portal.dart::_PortalEntryState" {
+  -LayerLink _link
+  -bool _visible
+  -Timer? _timer
+  +void didUpdateWidget()
+  +Widget build()
+  +void dispose()
+}
+
+"contextual_menu::portal.dart::_PortalEntryState" o-- "flutter::src::rendering::layer.dart::LayerLink"
+"contextual_menu::portal.dart::_PortalEntryState" o-- "dart::async::Timer"
+
+class "contextual_menu::portal.dart::_PortalEntryTheater" {
+  +Widget? portal
+  +bool loosen
+  +_OverlayLink overlayLink
+  +RenderObject createRenderObject()
+  +void updateRenderObject()
+  +SingleChildRenderObjectElement createElement()
+  +void debugFillProperties()
+}
+
+"contextual_menu::portal.dart::_PortalEntryTheater" o-- "flutter::src::widgets::framework.dart::Widget"
+"contextual_menu::portal.dart::_PortalEntryTheater" o-- "contextual_menu::portal.dart::_OverlayLink"
+
+class "contextual_menu::portal.dart::_RenderPortalEntry" {
+  -bool _needsAddEntryInTheater
+  -_OverlayLink _overlayLink
+  -bool _loosen
+  -RenderBox? _branch
+  +_OverlayLink overlayLink
+  +bool loosen
+  +RenderBox? branch
+  +void markNeedsAddEntryInTheater()
+  +void attach()
+  +void detach()
+  +void markNeedsPaint()
+  +void performLayout()
+  +void applyPaintTransform()
+  +void redepthChildren()
+  +void visitChildren()
+  +void debugFillProperties()
+}
+
+"contextual_menu::portal.dart::_RenderPortalEntry" o-- "contextual_menu::portal.dart::_OverlayLink"
+"contextual_menu::portal.dart::_RenderPortalEntry" o-- "flutter::src::rendering::box.dart::RenderBox"
+
+class "contextual_menu::portal.dart::_PortalEntryElement" {
+  -Element? _branch
+  -int _branchSlot
+  +_PortalEntryTheater widget
+  +_RenderPortalEntry renderObject
+  +void mount()
+  +void update()
+  +void visitChildren()
+  +void forgetChild()
+  +void insertRenderObjectChild()
+  +void moveRenderObjectChild()
+  +void removeRenderObjectChild()
+}
+
+"contextual_menu::portal.dart::_PortalEntryElement" o-- "flutter::src::widgets::framework.dart::Element"
+"contextual_menu::portal.dart::_PortalEntryElement" o-- "contextual_menu::portal.dart::_PortalEntryTheater"
+"contextual_menu::portal.dart::_PortalEntryElement" o-- "contextual_menu::portal.dart::_RenderPortalEntry"
+
+class "contextual_menu::portal.dart::PortalNotFoundError" {
+  -PortalEntry _portalEntry
+  +String toString()
+}
+
+"contextual_menu::portal.dart::PortalNotFoundError" o-- "contextual_menu::portal.dart::PortalEntry"
+
+
+@enduml

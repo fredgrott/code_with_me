@@ -1,0 +1,207 @@
+@startuml
+set namespaceSeparator ::
+
+class "datepicker::custom_follower.dart::MyCompositedTransformFollower" {
+  +Alignment childAnchor
+  +Alignment portalAnchor
+  +LayerLink link
+  +Size targetSize
+  +MyRenderFollowerLayer createRenderObject()
+  +void updateRenderObject()
+  +void debugFillProperties()
+}
+
+"datepicker::custom_follower.dart::MyCompositedTransformFollower" o-- "flutter::src::painting::alignment.dart::Alignment"
+"datepicker::custom_follower.dart::MyCompositedTransformFollower" o-- "flutter::src::rendering::layer.dart::LayerLink"
+"datepicker::custom_follower.dart::MyCompositedTransformFollower" o-- "dart::ui::Size"
+
+class "datepicker::custom_follower.dart::MyRenderFollowerLayer" {
+  -Alignment _childAnchor
+  -Alignment _portalAnchor
+  -LayerLink _link
+  -Size _targetSize
+  +Alignment childAnchor
+  +Alignment portalAnchor
+  +LayerLink link
+  +Size targetSize
+  +bool alwaysNeedsCompositing
+  +bool sizedByParent
+  +FollowerLayer? layer
+  +void detach()
+  +Matrix4 getCurrentTransform()
+  +bool hitTest()
+  +bool hitTestChildren()
+  +void performResize()
+  +void paint()
+  +void applyPaintTransform()
+  +void debugFillProperties()
+}
+
+"datepicker::custom_follower.dart::MyRenderFollowerLayer" o-- "flutter::src::painting::alignment.dart::Alignment"
+"datepicker::custom_follower.dart::MyRenderFollowerLayer" o-- "flutter::src::rendering::layer.dart::LayerLink"
+"datepicker::custom_follower.dart::MyRenderFollowerLayer" o-- "dart::ui::Size"
+"datepicker::custom_follower.dart::MyRenderFollowerLayer" o-- "flutter::src::rendering::layer.dart::FollowerLayer"
+
+class "datepicker::main.dart::DeclarativeDatePicker" {
+  +bool visible
+  +Widget child
+  +void Function() onDismissed
+  +void Function(DateTime) onClose
+  +Widget build()
+}
+
+"datepicker::main.dart::DeclarativeDatePicker" o-- "flutter::src::widgets::framework.dart::Widget"
+"datepicker::main.dart::DeclarativeDatePicker" o-- "dart::ui::void Function()"
+"datepicker::main.dart::DeclarativeDatePicker" o-- "null::void Function(DateTime)"
+
+class "datepicker::main.dart::MyApp" {
+  +Widget build()
+}
+
+class "datepicker::main.dart::DatePickerUsageExample" {
+  +_DatePickerUsageExampleState createState()
+}
+
+class "datepicker::main.dart::_DatePickerUsageExampleState" {
+  +DateTime? pickedDate
+  +bool showDatePicker
+  +Widget build()
+}
+
+class "datepicker::portal.dart::Portal" {
+  +Widget child
+  +_PortalState createState()
+}
+
+"datepicker::portal.dart::Portal" o-- "flutter::src::widgets::framework.dart::Widget"
+
+class "datepicker::portal.dart::_PortalState" {
+  -_OverlayLink _overlayLink
+  +Widget build()
+}
+
+"datepicker::portal.dart::_PortalState" o-- "datepicker::portal.dart::_OverlayLink"
+
+class "datepicker::portal.dart::_OverlayLink" {
+  +_RenderPortalTheater? theater
+  +Set<RenderBox> overlays
+  +BoxConstraints? constraints
+}
+
+"datepicker::portal.dart::_OverlayLink" o-- "datepicker::portal.dart::_RenderPortalTheater"
+"datepicker::portal.dart::_OverlayLink" o-- "flutter::src::rendering::box.dart::BoxConstraints"
+
+class "datepicker::portal.dart::_PortalLinkScope" {
+  -_OverlayLink _overlayLink
+  +bool updateShouldNotify()
+}
+
+"datepicker::portal.dart::_PortalLinkScope" o-- "datepicker::portal.dart::_OverlayLink"
+
+class "datepicker::portal.dart::_PortalTheater" {
+  -_OverlayLink _overlayLink
+  +_RenderPortalTheater createRenderObject()
+  +void updateRenderObject()
+}
+
+"datepicker::portal.dart::_PortalTheater" o-- "datepicker::portal.dart::_OverlayLink"
+
+class "datepicker::portal.dart::_RenderPortalTheater" {
+  -_OverlayLink _overlayLink
+  +_OverlayLink overlayLink
+  +void markNeedsLayout()
+  +void paint()
+  +bool hitTestChildren()
+  +void debugFillProperties()
+}
+
+"datepicker::portal.dart::_RenderPortalTheater" o-- "datepicker::portal.dart::_OverlayLink"
+
+class "datepicker::portal.dart::PortalEntry" {
+  +bool visible
+  +Alignment? portalAnchor
+  +Alignment? childAnchor
+  +Widget? portal
+  +Widget child
+  +Duration? closeDuration
+  +_PortalEntryState createState()
+  +void debugFillProperties()
+}
+
+"datepicker::portal.dart::PortalEntry" o-- "flutter::src::painting::alignment.dart::Alignment"
+"datepicker::portal.dart::PortalEntry" o-- "flutter::src::widgets::framework.dart::Widget"
+
+class "datepicker::portal.dart::_PortalEntryState" {
+  -LayerLink _link
+  -bool _visible
+  -Timer? _timer
+  +void didUpdateWidget()
+  +Widget build()
+  +void dispose()
+}
+
+"datepicker::portal.dart::_PortalEntryState" o-- "flutter::src::rendering::layer.dart::LayerLink"
+"datepicker::portal.dart::_PortalEntryState" o-- "dart::async::Timer"
+
+class "datepicker::portal.dart::_PortalEntryTheater" {
+  +Widget? portal
+  +bool loosen
+  +_OverlayLink overlayLink
+  +RenderObject createRenderObject()
+  +void updateRenderObject()
+  +SingleChildRenderObjectElement createElement()
+  +void debugFillProperties()
+}
+
+"datepicker::portal.dart::_PortalEntryTheater" o-- "flutter::src::widgets::framework.dart::Widget"
+"datepicker::portal.dart::_PortalEntryTheater" o-- "datepicker::portal.dart::_OverlayLink"
+
+class "datepicker::portal.dart::_RenderPortalEntry" {
+  -bool _needsAddEntryInTheater
+  -_OverlayLink _overlayLink
+  -bool _loosen
+  -RenderBox? _branch
+  +_OverlayLink overlayLink
+  +bool loosen
+  +RenderBox? branch
+  +void markNeedsAddEntryInTheater()
+  +void attach()
+  +void detach()
+  +void markNeedsPaint()
+  +void performLayout()
+  +void applyPaintTransform()
+  +void redepthChildren()
+  +void visitChildren()
+  +void debugFillProperties()
+}
+
+"datepicker::portal.dart::_RenderPortalEntry" o-- "datepicker::portal.dart::_OverlayLink"
+"datepicker::portal.dart::_RenderPortalEntry" o-- "flutter::src::rendering::box.dart::RenderBox"
+
+class "datepicker::portal.dart::_PortalEntryElement" {
+  -Element? _branch
+  -int _branchSlot
+  +_PortalEntryTheater widget
+  +_RenderPortalEntry renderObject
+  +void mount()
+  +void update()
+  +void visitChildren()
+  +void forgetChild()
+  +void insertRenderObjectChild()
+  +void moveRenderObjectChild()
+  +void removeRenderObjectChild()
+}
+
+"datepicker::portal.dart::_PortalEntryElement" o-- "flutter::src::widgets::framework.dart::Element"
+"datepicker::portal.dart::_PortalEntryElement" o-- "datepicker::portal.dart::_PortalEntryTheater"
+"datepicker::portal.dart::_PortalEntryElement" o-- "datepicker::portal.dart::_RenderPortalEntry"
+
+class "datepicker::portal.dart::PortalNotFoundError" {
+  -PortalEntry _portalEntry
+  +String toString()
+}
+
+"datepicker::portal.dart::PortalNotFoundError" o-- "datepicker::portal.dart::PortalEntry"
+
+
+@enduml

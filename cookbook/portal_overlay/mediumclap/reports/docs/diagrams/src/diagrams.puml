@@ -1,0 +1,199 @@
+@startuml
+set namespaceSeparator ::
+
+class "mediumclap::custom_follower.dart::MyCompositedTransformFollower" {
+  +Alignment childAnchor
+  +Alignment portalAnchor
+  +LayerLink link
+  +Size targetSize
+  +MyRenderFollowerLayer createRenderObject()
+  +void updateRenderObject()
+  +void debugFillProperties()
+}
+
+"mediumclap::custom_follower.dart::MyCompositedTransformFollower" o-- "flutter::src::painting::alignment.dart::Alignment"
+"mediumclap::custom_follower.dart::MyCompositedTransformFollower" o-- "flutter::src::rendering::layer.dart::LayerLink"
+"mediumclap::custom_follower.dart::MyCompositedTransformFollower" o-- "dart::ui::Size"
+
+class "mediumclap::custom_follower.dart::MyRenderFollowerLayer" {
+  -Alignment _childAnchor
+  -Alignment _portalAnchor
+  -LayerLink _link
+  -Size _targetSize
+  +Alignment childAnchor
+  +Alignment portalAnchor
+  +LayerLink link
+  +Size targetSize
+  +bool alwaysNeedsCompositing
+  +bool sizedByParent
+  +FollowerLayer? layer
+  +void detach()
+  +Matrix4 getCurrentTransform()
+  +bool hitTest()
+  +bool hitTestChildren()
+  +void performResize()
+  +void paint()
+  +void applyPaintTransform()
+  +void debugFillProperties()
+}
+
+"mediumclap::custom_follower.dart::MyRenderFollowerLayer" o-- "flutter::src::painting::alignment.dart::Alignment"
+"mediumclap::custom_follower.dart::MyRenderFollowerLayer" o-- "flutter::src::rendering::layer.dart::LayerLink"
+"mediumclap::custom_follower.dart::MyRenderFollowerLayer" o-- "dart::ui::Size"
+"mediumclap::custom_follower.dart::MyRenderFollowerLayer" o-- "flutter::src::rendering::layer.dart::FollowerLayer"
+
+class "mediumclap::main.dart::MyApp" {
+  +Widget build()
+}
+
+class "mediumclap::main.dart::ClapButton" {
+  +_ClapButtonState createState()
+}
+
+class "mediumclap::main.dart::_ClapButtonState" {
+  +int clapCount
+  +bool hasClappedRecently
+  +Timer? resetHasClappedRecentlyTimer
+  +Widget build()
+  -void _clap()
+}
+
+"mediumclap::main.dart::_ClapButtonState" o-- "dart::async::Timer"
+
+class "mediumclap::portal.dart::Portal" {
+  +Widget child
+  +_PortalState createState()
+}
+
+"mediumclap::portal.dart::Portal" o-- "flutter::src::widgets::framework.dart::Widget"
+
+class "mediumclap::portal.dart::_PortalState" {
+  -_OverlayLink _overlayLink
+  +Widget build()
+}
+
+"mediumclap::portal.dart::_PortalState" o-- "mediumclap::portal.dart::_OverlayLink"
+
+class "mediumclap::portal.dart::_OverlayLink" {
+  +_RenderPortalTheater? theater
+  +Set<RenderBox> overlays
+  +BoxConstraints? constraints
+}
+
+"mediumclap::portal.dart::_OverlayLink" o-- "mediumclap::portal.dart::_RenderPortalTheater"
+"mediumclap::portal.dart::_OverlayLink" o-- "flutter::src::rendering::box.dart::BoxConstraints"
+
+class "mediumclap::portal.dart::_PortalLinkScope" {
+  -_OverlayLink _overlayLink
+  +bool updateShouldNotify()
+}
+
+"mediumclap::portal.dart::_PortalLinkScope" o-- "mediumclap::portal.dart::_OverlayLink"
+
+class "mediumclap::portal.dart::_PortalTheater" {
+  -_OverlayLink _overlayLink
+  +_RenderPortalTheater createRenderObject()
+  +void updateRenderObject()
+}
+
+"mediumclap::portal.dart::_PortalTheater" o-- "mediumclap::portal.dart::_OverlayLink"
+
+class "mediumclap::portal.dart::_RenderPortalTheater" {
+  -_OverlayLink _overlayLink
+  +_OverlayLink overlayLink
+  +void markNeedsLayout()
+  +void paint()
+  +bool hitTestChildren()
+  +void debugFillProperties()
+}
+
+"mediumclap::portal.dart::_RenderPortalTheater" o-- "mediumclap::portal.dart::_OverlayLink"
+
+class "mediumclap::portal.dart::PortalEntry" {
+  +bool visible
+  +Alignment? portalAnchor
+  +Alignment? childAnchor
+  +Widget? portal
+  +Widget child
+  +Duration? closeDuration
+  +_PortalEntryState createState()
+  +void debugFillProperties()
+}
+
+"mediumclap::portal.dart::PortalEntry" o-- "flutter::src::painting::alignment.dart::Alignment"
+"mediumclap::portal.dart::PortalEntry" o-- "flutter::src::widgets::framework.dart::Widget"
+
+class "mediumclap::portal.dart::_PortalEntryState" {
+  -LayerLink _link
+  -bool _visible
+  -Timer? _timer
+  +void didUpdateWidget()
+  +Widget build()
+  +void dispose()
+}
+
+"mediumclap::portal.dart::_PortalEntryState" o-- "flutter::src::rendering::layer.dart::LayerLink"
+"mediumclap::portal.dart::_PortalEntryState" o-- "dart::async::Timer"
+
+class "mediumclap::portal.dart::_PortalEntryTheater" {
+  +Widget? portal
+  +bool loosen
+  +_OverlayLink overlayLink
+  +RenderObject createRenderObject()
+  +void updateRenderObject()
+  +SingleChildRenderObjectElement createElement()
+  +void debugFillProperties()
+}
+
+"mediumclap::portal.dart::_PortalEntryTheater" o-- "flutter::src::widgets::framework.dart::Widget"
+"mediumclap::portal.dart::_PortalEntryTheater" o-- "mediumclap::portal.dart::_OverlayLink"
+
+class "mediumclap::portal.dart::_RenderPortalEntry" {
+  -bool _needsAddEntryInTheater
+  -_OverlayLink _overlayLink
+  -bool _loosen
+  -RenderBox? _branch
+  +_OverlayLink overlayLink
+  +bool loosen
+  +RenderBox? branch
+  +void markNeedsAddEntryInTheater()
+  +void attach()
+  +void detach()
+  +void markNeedsPaint()
+  +void performLayout()
+  +void applyPaintTransform()
+  +void redepthChildren()
+  +void visitChildren()
+  +void debugFillProperties()
+}
+
+"mediumclap::portal.dart::_RenderPortalEntry" o-- "mediumclap::portal.dart::_OverlayLink"
+"mediumclap::portal.dart::_RenderPortalEntry" o-- "flutter::src::rendering::box.dart::RenderBox"
+
+class "mediumclap::portal.dart::_PortalEntryElement" {
+  -Element? _branch
+  -int _branchSlot
+  +_PortalEntryTheater widget
+  +_RenderPortalEntry renderObject
+  +void mount()
+  +void update()
+  +void visitChildren()
+  +void forgetChild()
+  +void insertRenderObjectChild()
+  +void moveRenderObjectChild()
+  +void removeRenderObjectChild()
+}
+
+"mediumclap::portal.dart::_PortalEntryElement" o-- "flutter::src::widgets::framework.dart::Element"
+"mediumclap::portal.dart::_PortalEntryElement" o-- "mediumclap::portal.dart::_PortalEntryTheater"
+"mediumclap::portal.dart::_PortalEntryElement" o-- "mediumclap::portal.dart::_RenderPortalEntry"
+
+class "mediumclap::portal.dart::PortalNotFoundError" {
+  -PortalEntry _portalEntry
+  +String toString()
+}
+
+"mediumclap::portal.dart::PortalNotFoundError" o-- "mediumclap::portal.dart::PortalEntry"
+
+
+@enduml

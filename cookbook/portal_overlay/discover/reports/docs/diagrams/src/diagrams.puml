@@ -1,0 +1,225 @@
+@startuml
+set namespaceSeparator ::
+
+class "discover::custom_follower.dart::MyCompositedTransformFollower" {
+  +Alignment childAnchor
+  +Alignment portalAnchor
+  +LayerLink link
+  +Size targetSize
+  +MyRenderFollowerLayer createRenderObject()
+  +void updateRenderObject()
+  +void debugFillProperties()
+}
+
+"discover::custom_follower.dart::MyCompositedTransformFollower" o-- "flutter::src::painting::alignment.dart::Alignment"
+"discover::custom_follower.dart::MyCompositedTransformFollower" o-- "flutter::src::rendering::layer.dart::LayerLink"
+"discover::custom_follower.dart::MyCompositedTransformFollower" o-- "dart::ui::Size"
+
+class "discover::custom_follower.dart::MyRenderFollowerLayer" {
+  -Alignment _childAnchor
+  -Alignment _portalAnchor
+  -LayerLink _link
+  -Size _targetSize
+  +Alignment childAnchor
+  +Alignment portalAnchor
+  +LayerLink link
+  +Size targetSize
+  +bool alwaysNeedsCompositing
+  +bool sizedByParent
+  +FollowerLayer? layer
+  +void detach()
+  +Matrix4 getCurrentTransform()
+  +bool hitTest()
+  +bool hitTestChildren()
+  +void performResize()
+  +void paint()
+  +void applyPaintTransform()
+  +void debugFillProperties()
+}
+
+"discover::custom_follower.dart::MyRenderFollowerLayer" o-- "flutter::src::painting::alignment.dart::Alignment"
+"discover::custom_follower.dart::MyRenderFollowerLayer" o-- "flutter::src::rendering::layer.dart::LayerLink"
+"discover::custom_follower.dart::MyRenderFollowerLayer" o-- "dart::ui::Size"
+"discover::custom_follower.dart::MyRenderFollowerLayer" o-- "flutter::src::rendering::layer.dart::FollowerLayer"
+
+class "discover::main.dart::MyApp" {
+  +_MyAppState createState()
+}
+
+class "discover::main.dart::_MyAppState" {
+  +bool showDiscovery
+  +int count
+  +Widget build()
+  -void _increment()
+}
+
+class "discover::main.dart::Discovery" {
+  +Widget child
+  +Widget description
+  +bool visible
+  +void Function() onClose
+  +Widget build()
+}
+
+"discover::main.dart::Discovery" o-- "flutter::src::widgets::framework.dart::Widget"
+"discover::main.dart::Discovery" o-- "dart::ui::void Function()"
+
+class "discover::main.dart::HolePainter" {
+  +Color color
+  +void paint()
+  +bool shouldRepaint()
+}
+
+"discover::main.dart::HolePainter" o-- "dart::ui::Color"
+
+class "discover::main.dart::Barrier" {
+  +Widget child
+  +void Function() onClose
+  +bool visible
+  +Widget build()
+}
+
+"discover::main.dart::Barrier" o-- "flutter::src::widgets::framework.dart::Widget"
+"discover::main.dart::Barrier" o-- "dart::ui::void Function()"
+
+class "discover::main.dart::ColorTween" {
+  +Color lerp()
+}
+
+class "discover::portal.dart::Portal" {
+  +Widget child
+  +_PortalState createState()
+}
+
+"discover::portal.dart::Portal" o-- "flutter::src::widgets::framework.dart::Widget"
+
+class "discover::portal.dart::_PortalState" {
+  -_OverlayLink _overlayLink
+  +Widget build()
+}
+
+"discover::portal.dart::_PortalState" o-- "discover::portal.dart::_OverlayLink"
+
+class "discover::portal.dart::_OverlayLink" {
+  +_RenderPortalTheater? theater
+  +Set<RenderBox> overlays
+  +BoxConstraints? constraints
+}
+
+"discover::portal.dart::_OverlayLink" o-- "discover::portal.dart::_RenderPortalTheater"
+"discover::portal.dart::_OverlayLink" o-- "flutter::src::rendering::box.dart::BoxConstraints"
+
+class "discover::portal.dart::_PortalLinkScope" {
+  -_OverlayLink _overlayLink
+  +bool updateShouldNotify()
+}
+
+"discover::portal.dart::_PortalLinkScope" o-- "discover::portal.dart::_OverlayLink"
+
+class "discover::portal.dart::_PortalTheater" {
+  -_OverlayLink _overlayLink
+  +_RenderPortalTheater createRenderObject()
+  +void updateRenderObject()
+}
+
+"discover::portal.dart::_PortalTheater" o-- "discover::portal.dart::_OverlayLink"
+
+class "discover::portal.dart::_RenderPortalTheater" {
+  -_OverlayLink _overlayLink
+  +_OverlayLink overlayLink
+  +void markNeedsLayout()
+  +void paint()
+  +bool hitTestChildren()
+  +void debugFillProperties()
+}
+
+"discover::portal.dart::_RenderPortalTheater" o-- "discover::portal.dart::_OverlayLink"
+
+class "discover::portal.dart::PortalEntry" {
+  +bool visible
+  +Alignment? portalAnchor
+  +Alignment? childAnchor
+  +Widget? portal
+  +Widget child
+  +Duration? closeDuration
+  +_PortalEntryState createState()
+  +void debugFillProperties()
+}
+
+"discover::portal.dart::PortalEntry" o-- "flutter::src::painting::alignment.dart::Alignment"
+"discover::portal.dart::PortalEntry" o-- "flutter::src::widgets::framework.dart::Widget"
+
+class "discover::portal.dart::_PortalEntryState" {
+  -LayerLink _link
+  -bool _visible
+  -Timer? _timer
+  +void didUpdateWidget()
+  +Widget build()
+  +void dispose()
+}
+
+"discover::portal.dart::_PortalEntryState" o-- "flutter::src::rendering::layer.dart::LayerLink"
+"discover::portal.dart::_PortalEntryState" o-- "dart::async::Timer"
+
+class "discover::portal.dart::_PortalEntryTheater" {
+  +Widget? portal
+  +bool loosen
+  +_OverlayLink overlayLink
+  +RenderObject createRenderObject()
+  +void updateRenderObject()
+  +SingleChildRenderObjectElement createElement()
+  +void debugFillProperties()
+}
+
+"discover::portal.dart::_PortalEntryTheater" o-- "flutter::src::widgets::framework.dart::Widget"
+"discover::portal.dart::_PortalEntryTheater" o-- "discover::portal.dart::_OverlayLink"
+
+class "discover::portal.dart::_RenderPortalEntry" {
+  -bool _needsAddEntryInTheater
+  -_OverlayLink _overlayLink
+  -bool _loosen
+  -RenderBox? _branch
+  +_OverlayLink overlayLink
+  +bool loosen
+  +RenderBox? branch
+  +void markNeedsAddEntryInTheater()
+  +void attach()
+  +void detach()
+  +void markNeedsPaint()
+  +void performLayout()
+  +void applyPaintTransform()
+  +void redepthChildren()
+  +void visitChildren()
+  +void debugFillProperties()
+}
+
+"discover::portal.dart::_RenderPortalEntry" o-- "discover::portal.dart::_OverlayLink"
+"discover::portal.dart::_RenderPortalEntry" o-- "flutter::src::rendering::box.dart::RenderBox"
+
+class "discover::portal.dart::_PortalEntryElement" {
+  -Element? _branch
+  -int _branchSlot
+  +_PortalEntryTheater widget
+  +_RenderPortalEntry renderObject
+  +void mount()
+  +void update()
+  +void visitChildren()
+  +void forgetChild()
+  +void insertRenderObjectChild()
+  +void moveRenderObjectChild()
+  +void removeRenderObjectChild()
+}
+
+"discover::portal.dart::_PortalEntryElement" o-- "flutter::src::widgets::framework.dart::Element"
+"discover::portal.dart::_PortalEntryElement" o-- "discover::portal.dart::_PortalEntryTheater"
+"discover::portal.dart::_PortalEntryElement" o-- "discover::portal.dart::_RenderPortalEntry"
+
+class "discover::portal.dart::PortalNotFoundError" {
+  -PortalEntry _portalEntry
+  +String toString()
+}
+
+"discover::portal.dart::PortalNotFoundError" o-- "discover::portal.dart::PortalEntry"
+
+
+@enduml

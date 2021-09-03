@@ -1,0 +1,215 @@
+@startuml
+set namespaceSeparator ::
+
+class "modal::custom_follower.dart::MyCompositedTransformFollower" {
+  +Alignment childAnchor
+  +Alignment portalAnchor
+  +LayerLink link
+  +Size targetSize
+  +MyRenderFollowerLayer createRenderObject()
+  +void updateRenderObject()
+  +void debugFillProperties()
+}
+
+"modal::custom_follower.dart::MyCompositedTransformFollower" o-- "flutter::src::painting::alignment.dart::Alignment"
+"modal::custom_follower.dart::MyCompositedTransformFollower" o-- "flutter::src::rendering::layer.dart::LayerLink"
+"modal::custom_follower.dart::MyCompositedTransformFollower" o-- "dart::ui::Size"
+
+class "modal::custom_follower.dart::MyRenderFollowerLayer" {
+  -Alignment _childAnchor
+  -Alignment _portalAnchor
+  -LayerLink _link
+  -Size _targetSize
+  +Alignment childAnchor
+  +Alignment portalAnchor
+  +LayerLink link
+  +Size targetSize
+  +bool alwaysNeedsCompositing
+  +bool sizedByParent
+  +FollowerLayer? layer
+  +void detach()
+  +Matrix4 getCurrentTransform()
+  +bool hitTest()
+  +bool hitTestChildren()
+  +void performResize()
+  +void paint()
+  +void applyPaintTransform()
+  +void debugFillProperties()
+}
+
+"modal::custom_follower.dart::MyRenderFollowerLayer" o-- "flutter::src::painting::alignment.dart::Alignment"
+"modal::custom_follower.dart::MyRenderFollowerLayer" o-- "flutter::src::rendering::layer.dart::LayerLink"
+"modal::custom_follower.dart::MyRenderFollowerLayer" o-- "dart::ui::Size"
+"modal::custom_follower.dart::MyRenderFollowerLayer" o-- "flutter::src::rendering::layer.dart::FollowerLayer"
+
+class "modal::main.dart::MyApp" {
+  +_MyAppState createState()
+}
+
+class "modal::main.dart::_MyAppState" {
+  +bool showModal
+  +Widget build()
+}
+
+class "modal::main.dart::Modal" {
+  +Widget child
+  +Widget modal
+  +bool visible
+  +void Function() onClose
+  +Widget build()
+}
+
+"modal::main.dart::Modal" o-- "flutter::src::widgets::framework.dart::Widget"
+"modal::main.dart::Modal" o-- "dart::ui::void Function()"
+
+class "modal::main.dart::Barrier" {
+  +Widget child
+  +void Function() onClose
+  +bool visible
+  +Widget build()
+}
+
+"modal::main.dart::Barrier" o-- "flutter::src::widgets::framework.dart::Widget"
+"modal::main.dart::Barrier" o-- "dart::ui::void Function()"
+
+class "modal::main.dart::ColorTween" {
+  +Color lerp()
+}
+
+class "modal::portal.dart::Portal" {
+  +Widget child
+  +_PortalState createState()
+}
+
+"modal::portal.dart::Portal" o-- "flutter::src::widgets::framework.dart::Widget"
+
+class "modal::portal.dart::_PortalState" {
+  -_OverlayLink _overlayLink
+  +Widget build()
+}
+
+"modal::portal.dart::_PortalState" o-- "modal::portal.dart::_OverlayLink"
+
+class "modal::portal.dart::_OverlayLink" {
+  +_RenderPortalTheater? theater
+  +Set<RenderBox> overlays
+  +BoxConstraints? constraints
+}
+
+"modal::portal.dart::_OverlayLink" o-- "modal::portal.dart::_RenderPortalTheater"
+"modal::portal.dart::_OverlayLink" o-- "flutter::src::rendering::box.dart::BoxConstraints"
+
+class "modal::portal.dart::_PortalLinkScope" {
+  -_OverlayLink _overlayLink
+  +bool updateShouldNotify()
+}
+
+"modal::portal.dart::_PortalLinkScope" o-- "modal::portal.dart::_OverlayLink"
+
+class "modal::portal.dart::_PortalTheater" {
+  -_OverlayLink _overlayLink
+  +_RenderPortalTheater createRenderObject()
+  +void updateRenderObject()
+}
+
+"modal::portal.dart::_PortalTheater" o-- "modal::portal.dart::_OverlayLink"
+
+class "modal::portal.dart::_RenderPortalTheater" {
+  -_OverlayLink _overlayLink
+  +_OverlayLink overlayLink
+  +void markNeedsLayout()
+  +void paint()
+  +bool hitTestChildren()
+  +void debugFillProperties()
+}
+
+"modal::portal.dart::_RenderPortalTheater" o-- "modal::portal.dart::_OverlayLink"
+
+class "modal::portal.dart::PortalEntry" {
+  +bool visible
+  +Alignment? portalAnchor
+  +Alignment? childAnchor
+  +Widget? portal
+  +Widget child
+  +Duration? closeDuration
+  +_PortalEntryState createState()
+  +void debugFillProperties()
+}
+
+"modal::portal.dart::PortalEntry" o-- "flutter::src::painting::alignment.dart::Alignment"
+"modal::portal.dart::PortalEntry" o-- "flutter::src::widgets::framework.dart::Widget"
+
+class "modal::portal.dart::_PortalEntryState" {
+  -LayerLink _link
+  -bool _visible
+  -Timer? _timer
+  +void didUpdateWidget()
+  +Widget build()
+  +void dispose()
+}
+
+"modal::portal.dart::_PortalEntryState" o-- "flutter::src::rendering::layer.dart::LayerLink"
+"modal::portal.dart::_PortalEntryState" o-- "dart::async::Timer"
+
+class "modal::portal.dart::_PortalEntryTheater" {
+  +Widget? portal
+  +bool loosen
+  +_OverlayLink overlayLink
+  +RenderObject createRenderObject()
+  +void updateRenderObject()
+  +SingleChildRenderObjectElement createElement()
+  +void debugFillProperties()
+}
+
+"modal::portal.dart::_PortalEntryTheater" o-- "flutter::src::widgets::framework.dart::Widget"
+"modal::portal.dart::_PortalEntryTheater" o-- "modal::portal.dart::_OverlayLink"
+
+class "modal::portal.dart::_RenderPortalEntry" {
+  -bool _needsAddEntryInTheater
+  -_OverlayLink _overlayLink
+  -bool _loosen
+  -RenderBox? _branch
+  +_OverlayLink overlayLink
+  +bool loosen
+  +RenderBox? branch
+  +void markNeedsAddEntryInTheater()
+  +void attach()
+  +void detach()
+  +void markNeedsPaint()
+  +void performLayout()
+  +void applyPaintTransform()
+  +void redepthChildren()
+  +void visitChildren()
+  +void debugFillProperties()
+}
+
+"modal::portal.dart::_RenderPortalEntry" o-- "modal::portal.dart::_OverlayLink"
+"modal::portal.dart::_RenderPortalEntry" o-- "flutter::src::rendering::box.dart::RenderBox"
+
+class "modal::portal.dart::_PortalEntryElement" {
+  -Element? _branch
+  -int _branchSlot
+  +_PortalEntryTheater widget
+  +_RenderPortalEntry renderObject
+  +void mount()
+  +void update()
+  +void visitChildren()
+  +void forgetChild()
+  +void insertRenderObjectChild()
+  +void moveRenderObjectChild()
+  +void removeRenderObjectChild()
+}
+
+"modal::portal.dart::_PortalEntryElement" o-- "flutter::src::widgets::framework.dart::Element"
+"modal::portal.dart::_PortalEntryElement" o-- "modal::portal.dart::_PortalEntryTheater"
+"modal::portal.dart::_PortalEntryElement" o-- "modal::portal.dart::_RenderPortalEntry"
+
+class "modal::portal.dart::PortalNotFoundError" {
+  -PortalEntry _portalEntry
+  +String toString()
+}
+
+"modal::portal.dart::PortalNotFoundError" o-- "modal::portal.dart::PortalEntry"
+
+
+@enduml
