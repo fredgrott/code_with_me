@@ -1,0 +1,9 @@
+{
+
+    "appTitle": "list_boilerplate",
+    "@appTitle": {
+        "description": "The title of the application"
+    }
+
+
+}

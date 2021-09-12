@@ -1,0 +1,1 @@
+This is a required folder for eBay's Golden Toolkit library.
