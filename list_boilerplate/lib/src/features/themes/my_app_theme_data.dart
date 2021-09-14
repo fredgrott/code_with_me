@@ -41,38 +41,38 @@ import 'package:list_boilerplate/src/features/themes/mytypography.dart';
 class MyAppThemeData {
   // the component colors that do not properly flow yet through
   // colorscheme
-  static const _lightAppBarColor = myPrimaryColor;
+  static const _lightAppBarColor = Colors.white;
   static const _darkAppBarColor = Colors.black87;
-  static const _lightLeadingAppBarIconColor = mySecondaryColor;
-  static final _darkLeadingAppbarIconColor = mySecondaryColor.withOpacity(0.12);
-  static const _lightActionsAppBarIconColor = mySecondaryColor;
-  static final _darkActionsAppBarIconColor = mySecondaryColor.withOpacity(0.12);
-  static const _lightBannerColor = myPrimaryVariantColor;
+  static const _lightLeadingAppBarIconColor = Colors.white;
+  static final _darkLeadingAppbarIconColor = Colors.white.withOpacity(0.12);
+  static const _lightActionsAppBarIconColor = Colors.white;
+  static final _darkActionsAppBarIconColor = Colors.white.withOpacity(0.12);
+  static const _lightBannerColor = Colors.white;
   static const _darkBannerColor = Colors.black54;
-  static const _lightBottomAppBarColor = myPrimaryColor;
+  static const _lightBottomAppBarColor = Colors.white;
   static const _darkBottomAppBarColor = Colors.black87;
-  static const _lightBottomNavBarColor = myPrimaryColor;
+  static const _lightBottomNavBarColor = Colors.white;
   static const _darkBottomNavBarColor = Colors.black87;
-  static const _lightBottomNavBarSeletectedIconColor = mySecondaryVariantColor;
+  static const _lightBottomNavBarSeletectedIconColor = Colors.white;
   static final _darkBottomNavBarSelectedIconColor =
-      mySecondaryVariantColor.withOpacity(0.12);
-  static const _lightBottomNavBarUnSelectedIconColor = mySecondaryColor;
+      Colors.white.withOpacity(0.12);
+  static const _lightBottomNavBarUnSelectedIconColor = Colors.white;
   static final _darkBottomNavBarUnSelectedIconColor =
-      mySecondaryColor.withOpacity(0.12);
-  static const _lightBottomNavBarSelectedItemColor = mySecondaryVariantColor;
+      Colors.white.withOpacity(0.12);
+  static const _lightBottomNavBarSelectedItemColor = Colors.white;
   static final _darkBottomNavBarSelectedItemColor =
-      mySecondaryVariantColor.withOpacity(0.12);
-  static const _lightBottomNavBarUnselectedItemColor = mySecondaryColor;
+      Colors.white.withOpacity(0.12);
+  static const _lightBottomNavBarUnselectedItemColor = Colors.white;
   static final _darkBottomNavBarUnselectedItemColor =
-      mySecondaryColor.withOpacity(0.12);
-  static const _lightBottomNavBarSelectedLabelColor = mySecondaryVariantColor;
+      Colors.white.withOpacity(0.12);
+  static const _lightBottomNavBarSelectedLabelColor = Colors.white;
   static final _darkBottomNavBarSelectedLabelColor =
-      mySecondaryVariantColor.withOpacity(0.12);
-  static const _lightBottomNavBarUnselectedLabelColor = mySecondaryColor;
+      Colors.white.withOpacity(0.12);
+  static const _lightBottomNavBarUnselectedLabelColor = Colors.white;
   static final _darkBottomNavBarUnselectedLabelColor =
-      mySecondaryColor.withOpacity(0.12);
+      Colors.white.withOpacity(0.12);
 
-  static const _lightCanvasColor = myBackgroundColor;
+  static const _lightCanvasColor = Colors.white;
   static const _darkCanvasColor = Colors.black45;
 
   static const _lightFillColor = Colors.red;
@@ -116,9 +116,9 @@ class MyAppThemeData {
       focusColor: focusColor,
       highlightColor: Colors.transparent,
       // flutter 2.5.0 has a hard error on primary color
-      primaryColor: myPrimaryColor,
+      primaryColor: Colors.white,
       primaryColorBrightness: myBrightness,
-      primaryColorDark: myPrimaryVariantColor,
+      primaryColorDark: Colors.white,
       primaryColorLight: const Color(0xffaa00ff),
       scaffoldBackgroundColor: colorScheme.background,
       secondaryHeaderColor: colorScheme.secondaryVariant,
@@ -318,67 +318,67 @@ class MyAppThemeData {
     );
   }
 
-  static const ColorScheme lightHighContrastColorScheme = ColorScheme(
-    primary: myPrimaryColor,
-    primaryVariant: myPrimaryVariantColor,
-    secondary: mySecondaryColor,
-    secondaryVariant: mySecondaryVariantColor,
-    surface: mySurfaceColor,
-    background: myBackgroundColor,
+  static  ColorScheme lightHighContrastColorScheme = const ColorScheme(
+    primary: Colors.white,
+    primaryVariant: Colors.white,
+    secondary: Colors.white,
+    secondaryVariant: Colors.white,
+    surface: Colors.white,
+    background: Colors.white,
     error: _lightFillColor,
-    onPrimary: myOnPrimaryColor,
-    onSecondary: myOnSecondaryColor,
-    onSurface: myOnSurfaceColor,
-    onBackground: myOnBackgroundColor,
-    onError: myOnErrorColor,
+    onPrimary: Colors.white,
+    onSecondary: Colors.white,
+    onSurface: Colors.white,
+    onBackground: Colors.white,
+    onError: Colors.white,
     brightness: Brightness.light,
   );
 
-  static const ColorScheme lightColorScheme = ColorScheme(
-    primary: myPrimaryColor,
-    primaryVariant: myPrimaryVariantColor,
-    secondary: mySecondaryColor,
-    secondaryVariant: mySecondaryVariantColor,
-    surface: mySurfaceColor,
-    background: myBackgroundColor,
+  static  ColorScheme lightColorScheme = const ColorScheme(
+    primary: Colors.white,
+    primaryVariant: Colors.white,
+    secondary: Colors.white,
+    secondaryVariant: Colors.white,
+    surface: Colors.white,
+    background: Colors.white,
     error: _lightFillColor,
-    onPrimary: myOnPrimaryColor,
-    onSecondary: myOnSecondaryColor,
-    onSurface: myOnSurfaceColor,
-    onBackground: myOnBackgroundColor,
-    onError: myOnErrorColor,
+    onPrimary: Colors.white,
+    onSecondary: Colors.white,
+    onSurface: Colors.white,
+    onBackground: Colors.white,
+    onError: Colors.white,
     brightness: Brightness.light,
   );
 
-  static const ColorScheme darkColorScheme = ColorScheme(
-    primary: myPrimaryColor,
-    primaryVariant: myPrimaryVariantColor,
-    secondary: mySecondaryColor,
-    secondaryVariant: mySecondaryVariantColor,
-    surface: mySurfaceColor,
-    background: myBackgroundColor,
+  static ColorScheme darkColorScheme = const ColorScheme(
+    primary: Colors.white,
+    primaryVariant: Colors.white,
+    secondary: Colors.white,
+    secondaryVariant: Colors.white,
+    surface: Colors.white,
+    background: Colors.white,
     error: _darkFillColor,
     onPrimary: _darkFillColor,
     onSecondary: _darkFillColor,
     onSurface: _darkFillColor,
     onBackground: _darkFillColor,
-    onError: myOnErrorColor,
+    onError: Colors.white,
     brightness: Brightness.dark,
   );
 
-  static const ColorScheme darkHighContrastColorScheme = ColorScheme(
-    primary: myPrimaryColor,
-    primaryVariant: myPrimaryVariantColor,
-    secondary: mySecondaryColor,
-    secondaryVariant: mySecondaryVariantColor,
-    surface: mySurfaceColor,
-    background: myBackgroundColor,
+  static ColorScheme darkHighContrastColorScheme = const ColorScheme(
+    primary: Colors.white,
+    primaryVariant: Colors.white,
+    secondary: Colors.white,
+    secondaryVariant: Colors.white,
+    surface: Colors.white,
+    background: Colors.white,
     error: _darkFillColor,
     onPrimary: _darkFillColor,
     onSecondary: _darkFillColor,
     onSurface: _darkFillColor,
     onBackground: _darkFillColor,
-    onError: myOnErrorColor,
+    onError: Colors.white,
     brightness: Brightness.dark,
   );
 }
