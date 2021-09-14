@@ -94,6 +94,7 @@ extension FredGrottColorThemeExtensions on Color {
     if (amount <= 0) return this;
     // Blend amounts >= 100 results in the input Color.
     if (amount >= 100) return input;
+    
     return Color.alphaBlend(input.withAlpha(255 * amount ~/ 100), this);
   }
 
