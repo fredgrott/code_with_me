@@ -1,0 +1,6 @@
+{
+  "appTitle": "reactive_one",
+  "@appTitle": {
+    "description": "The title of the application"
+  }
+}
