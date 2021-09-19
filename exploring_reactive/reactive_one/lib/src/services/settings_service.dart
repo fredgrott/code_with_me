@@ -1,3 +1,7 @@
+// Copyright 2021 Fredrick Allan Grott. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
 import 'package:flutter/material.dart';
 
 /// A service that stores and retrieves user settings.
@@ -10,6 +14,7 @@ class SettingsService {
   Future<ThemeMode> themeMode() async => ThemeMode.system;
 
   /// Persists the user's preferred ThemeMode to local or remote storage.
+  // ignore: no-empty-block
   Future<void> updateThemeMode(ThemeMode theme) async {
     // Use the shared_preferences package to persist settings locally or the
     // http package to persist settings over the network.

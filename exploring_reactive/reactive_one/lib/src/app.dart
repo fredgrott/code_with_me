@@ -1,20 +1,24 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+// Copyright 2021 Fredrick Allan Grott. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
 
-import 'sample_feature/sample_item_details_view.dart';
-import 'sample_feature/sample_item_list_view.dart';
-import 'settings/settings_controller.dart';
-import 'settings/settings_view.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:reactive_one/src/infrastructure/app_vars.dart';
+import 'package:reactive_one/src/presentation/features/home/ui/sample_item_details_view.dart';
+import 'package:reactive_one/src/presentation/features/home/ui/sample_item_list_view.dart';
+import 'package:reactive_one/src/presentation/features/settings/ui/settings_view.dart';
+
+import 'localization_gen/l10n.dart';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
-  const MyApp({
-    Key? key,
-    required this.settingsController,
-  }) : super(key: key);
 
-  final SettingsController settingsController;
+  final GlobalKey<NavigatorState> navigatorKey;
+
+  const MyApp({
+    Key? key, required this.navigatorKey,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +27,10 @@ class MyApp extends StatelessWidget {
     // The AnimatedBuilder Widget listens to the SettingsController for changes.
     // Whenever the user updates their settings, the MaterialApp is rebuilt.
     return AnimatedBuilder(
-      animation: settingsController,
+      animation: settingsViewModel,
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           // Providing a restorationScopeId allows the Navigator built by the
           // MaterialApp to restore the navigation stack when a user leaves and
           // returns to the app after it has been killed while running in the
@@ -36,7 +41,7 @@ class MyApp extends StatelessWidget {
           // allows descendant Widgets to display the correct translations
           // depending on the user's locale.
           localizationsDelegates: const [
-            AppLocalizations.delegate,
+            S.delegate,
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
@@ -50,15 +55,14 @@ class MyApp extends StatelessWidget {
           //
           // The appTitle is defined in .arb files found in the localization
           // directory.
-          onGenerateTitle: (BuildContext context) =>
-              AppLocalizations.of(context)!.appTitle,
+          onGenerateTitle: (BuildContext context) => S.of(context).appTitle,
 
           // Define a light and dark color theme. Then, read the user's
           // preferred ThemeMode (light, dark, or system default) from the
           // SettingsController to display the correct theme.
           theme: ThemeData(),
           darkTheme: ThemeData.dark(),
-          themeMode: settingsController.themeMode,
+          themeMode: settingsViewModel.themeMode,
 
           // Define a function to handle named routes in order to support
           // Flutter web url navigation and deep linking.
@@ -68,12 +72,12 @@ class MyApp extends StatelessWidget {
               builder: (BuildContext context) {
                 switch (routeSettings.name) {
                   case SettingsView.routeName:
-                    return SettingsView(controller: settingsController);
+                    return SettingsView(viewModel: settingsViewModel, navigatorKey: navigatorKey,);
                   case SampleItemDetailsView.routeName:
-                    return const SampleItemDetailsView();
+                    return SampleItemDetailsView(navigatorKey: navigatorKey,);
                   case SampleItemListView.routeName:
                   default:
-                    return const SampleItemListView();
+                    return SampleItemListView(navigatorKey: navigatorKey,);
                 }
               },
             );
