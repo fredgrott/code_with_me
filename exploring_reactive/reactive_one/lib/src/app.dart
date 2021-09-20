@@ -8,6 +8,7 @@ import 'package:reactive_one/src/infrastructure/app_vars.dart';
 import 'package:reactive_one/src/presentation/features/home/ui/sample_item_details_view.dart';
 import 'package:reactive_one/src/presentation/features/home/ui/sample_item_list_view.dart';
 import 'package:reactive_one/src/presentation/features/settings/ui/settings_view.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import 'localization_gen/l10n.dart';
 
@@ -63,6 +64,23 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(),
           darkTheme: ThemeData.dark(),
           themeMode: settingsViewModel.themeMode,
+
+          // the responsive UI helper
+          builder: (context, widget) => ResponsiveWrapper.builder(
+            BouncingScrollWrapper.builder(context, widget!),
+            maxWidth: 1200,
+            // ignore: avoid_redundant_argument_values
+            minWidth: 450,
+            defaultScale: true,
+            breakpoints: [
+              const ResponsiveBreakpoint.resize(450, name: MOBILE),
+              const ResponsiveBreakpoint.autoScale(800, name: TABLET),
+              const ResponsiveBreakpoint.autoScale(1000, name: TABLET),
+              const ResponsiveBreakpoint.resize(1200, name: DESKTOP),
+              const ResponsiveBreakpoint.autoScale(2460, name: "4K"),
+            ],
+          ),
+
 
           // Define a function to handle named routes in order to support
           // Flutter web url navigation and deep linking.

@@ -45,7 +45,7 @@ dart_code_metrics:
      source-lines-of-code: 50
    metrics-exclude:
      - test/**
-     - lib/generated/**
+     - lib/src/localization_gen/**
    rules:
      - newline-before-return
      - no-boolean-literal-compare

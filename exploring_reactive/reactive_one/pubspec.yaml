@@ -39,7 +39,9 @@ dev_dependencies:
     sdk: flutter
   # dart cyclic code metrics
   dart_code_metrics: ^4.1.0
-
+  # project workflow automation
+  build_runner: ^2.1.2
+  
 
   flutter_lints: ^1.0.0
 
