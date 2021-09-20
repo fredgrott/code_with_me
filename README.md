@@ -70,6 +70,10 @@ Note, I do in fact get a revenue cut for each Medium subscription which assists 
 
 ### Flutter OOP and FP
 
+[Master Flutter Zones](https://medium.com/geekculture/mastering-flutter-zones-ea28fe6a6ca6
+
+
+
 [Clean Arch For Flutter Designers](https://medium.com/p/clean-arch-for-flutter-designers-b8076416d2ca)
 
 [What The Hell Is State Management](https://medium.com/p/what-the-hell-is-state-management-ee49559e6f48)
