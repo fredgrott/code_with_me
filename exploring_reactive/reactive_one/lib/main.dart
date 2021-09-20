@@ -11,6 +11,7 @@ import 'package:reactive_one/src/app.dart';
 import 'package:reactive_one/src/infrastructure/app_exceptions_helper/catcher.dart';
 import 'package:reactive_one/src/infrastructure/app_vars.dart';
 import 'package:reactive_one/src/infrastructure/build_modes.dart';
+import 'package:reactive_one/src/infrastructure/functions_helpers/autotrycatchfunctions.dart';
 import 'package:reactive_one/src/infrastructure/logging/initlogger.dart';
 
 void mainDelegate() => main();
@@ -22,11 +23,13 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // set up app logging
-  initLogger();
+  guardVoided<dynamic>(() => initLogger());
 
   // Load the user's preferred theme while the splash screen is displayed.
   // This prevents a sudden theme change when the app is first displayed.
-  await settingsViewModel.loadSettings();
+  // await settingsViewModel.loadSettings();
+  // to try and catch block inner Future block items
+  asyncGuardDefaultValue(() => settingsViewModel.loadSettings());
 
   // to catch flutter sdk framework errors
   FlutterError.onError = (FlutterErrorDetails details) async {
@@ -51,9 +54,6 @@ Future<void> main() async {
     }
   };
 
-
-  
-
   runZonedGuarded<Future<void>>(
     () async {
       // To allow Catcher reports to work
@@ -64,7 +64,6 @@ Future<void> main() async {
       // crashanalytics, slack, etc.
       Catcher(
         rootWidget: MyApp(
-          
           navigatorKey: navigatorKey,
         ),
         debugConfig: debugOptions,
@@ -89,5 +88,4 @@ Future<void> main() async {
       },
     ),
   );
-
 }
