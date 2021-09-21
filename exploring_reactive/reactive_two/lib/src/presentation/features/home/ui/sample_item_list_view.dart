@@ -1,14 +1,21 @@
-import 'package:flutter/material.dart';
+// Copyright 2021 Fredrick Allan Grott. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
 
-import '../settings/settings_view.dart';
-import 'sample_item.dart';
-import 'sample_item_details_view.dart';
+import 'package:flutter/material.dart';
+import 'package:reactive_two/src/domain/entities/sample_item.dart';
+import 'package:reactive_two/src/presentation/features/home/ui/sample_item_details_view.dart';
+import 'package:reactive_two/src/presentation/features/settings/ui/settings_view.dart';
+
 
 /// Displays a list of SampleItems.
 class SampleItemListView extends StatelessWidget {
+
+  final GlobalKey<NavigatorState> navigatorKey;
+  
   const SampleItemListView({
     Key? key,
-    this.items = const [SampleItem(1), SampleItem(2), SampleItem(3)],
+    this.items = const [SampleItem(1), SampleItem(2), SampleItem(3)], required this.navigatorKey,
   }) : super(key: key);
 
   static const routeName = '/';
@@ -62,7 +69,7 @@ class SampleItemListView extends StatelessWidget {
                 context,
                 SampleItemDetailsView.routeName,
               );
-            }
+            },
           );
         },
       ),

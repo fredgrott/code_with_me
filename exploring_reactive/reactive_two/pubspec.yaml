@@ -14,10 +14,48 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  # localization helper
+  intl: ^0.17.0
+  # localization automation
+  intl_utils: ^2.4.0
+  # log reactively via streaming
+  logging: ^1.0.1
+  # logging appenders for output
+  logging_appenders: ^1.0.0
+  # app exceptions catcher
+  catcher: ^0.6.8
+  # responsive helper
+  responsive_framework: ^0.1.4
+  # custom fonts
+  google_fonts: ^2.1.0
+
+
+
+
+  
+ 
+  
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  # dart cyclic code metrics
+  dart_code_metrics: ^4.1.0
+  # project workflow automation
+  build_runner: ^2.1.2
+  # mocking for tests
+  mocktail: ^0.1.4
+  # mocking utility
+  mockingjay: ^0.1.0
+  # test utility
+  given_when_then: ^0.2.0
+  # goldens utility
+  golden_toolkit: ^0.10.0
+
+
+
+  
 
   flutter_lints: ^1.0.0
 
@@ -29,4 +67,16 @@ flutter:
 
   assets:
     # Add assets from the images directory to the application.
+    # google_fonts and images for goldens testing
     - assets/images/
+    - google_fonts/
+    - images/
+# flutter intl for localization settings
+flutter_intl:
+  enabled: true   
+  class_name: S   
+  main_locale: en 
+  arb_dir: lib/src/localization
+  output_dir: lib/src/localization_gen
+  use_deferred_loading: false
+

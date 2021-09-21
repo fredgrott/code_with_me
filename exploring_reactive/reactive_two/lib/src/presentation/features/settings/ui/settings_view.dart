@@ -1,17 +1,25 @@
-import 'package:flutter/material.dart';
+// Copyright 2021 Fredrick Allan Grott. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
 
-import 'settings_controller.dart';
+import 'package:flutter/material.dart';
+import 'package:reactive_two/src/presentation/features/settings/viewmodels/settings_viewmodel.dart';
+
 
 /// Displays the various settings that can be customized by the user.
 ///
 /// When a user changes a setting, the SettingsController is updated and
 /// Widgets that listen to the SettingsController are rebuilt.
 class SettingsView extends StatelessWidget {
-  const SettingsView({Key? key, required this.controller}) : super(key: key);
+
+  final GlobalKey<NavigatorState> navigatorKey;
+
+
+  const SettingsView({Key? key, required this.viewModel, required this.navigatorKey}) : super(key: key);
 
   static const routeName = '/settings';
 
-  final SettingsController controller;
+  final SettingsViewModel viewModel;
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +35,9 @@ class SettingsView extends StatelessWidget {
         // SettingsController is updated, which rebuilds the MaterialApp.
         child: DropdownButton<ThemeMode>(
           // Read the selected themeMode from the controller
-          value: controller.themeMode,
+          value: viewModel.themeMode,
           // Call the updateThemeMode method any time the user selects a theme.
-          onChanged: controller.updateThemeMode,
+          onChanged: viewModel.updateThemeMode,
           items: const [
             DropdownMenuItem(
               value: ThemeMode.system,
@@ -42,7 +50,7 @@ class SettingsView extends StatelessWidget {
             DropdownMenuItem(
               value: ThemeMode.dark,
               child: Text('Dark Theme'),
-            )
+            ),
           ],
         ),
       ),
