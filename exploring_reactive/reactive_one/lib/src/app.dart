@@ -5,9 +5,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:reactive_one/src/infrastructure/app_vars.dart';
+import 'package:reactive_one/src/infrastructure/route_names.dart';
 import 'package:reactive_one/src/presentation/features/home/ui/sample_item_details_view.dart';
 import 'package:reactive_one/src/presentation/features/home/ui/sample_item_list_view.dart';
 import 'package:reactive_one/src/presentation/features/settings/ui/settings_view.dart';
+import 'package:reactive_one/src/presentation/routes/router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import 'localization_gen/l10n.dart';
@@ -84,22 +86,8 @@ class MyApp extends StatelessWidget {
 
           // Define a function to handle named routes in order to support
           // Flutter web url navigation and deep linking.
-          onGenerateRoute: (RouteSettings routeSettings) {
-            return MaterialPageRoute<void>(
-              settings: routeSettings,
-              builder: (BuildContext context) {
-                switch (routeSettings.name) {
-                  case SettingsView.routeName:
-                    return SettingsView(viewModel: settingsViewModel, navigatorKey: navigatorKey,);
-                  case SampleItemDetailsView.routeName:
-                    return SampleItemDetailsView(navigatorKey: navigatorKey,);
-                  case SampleItemListView.routeName:
-                  default:
-                    return SampleItemListView(navigatorKey: navigatorKey,);
-                }
-              },
-            );
-          },
+          onGenerateRoute: MyRouter().generateRoute,
+          initialRoute: homeRoute,
         );
       },
     );
