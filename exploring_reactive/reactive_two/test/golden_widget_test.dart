@@ -18,6 +18,7 @@ import 'package:reactive_two/src/presentation/features/settings/viewmodels/setti
 class MockSettingsController extends Mock implements SettingsViewModel {}
 
 
+// ignore: long-method
 void main() {
   // set up for all tests in this test suite
   setUpAll(() async {
@@ -53,7 +54,7 @@ void main() {
         );
       await tester.pumpDeviceBuilder(builder);
       await screenMatchesGolden(
-          tester, "Sample Item List Page multiple screens");
+          tester, "Sample Item List Page multiple screens",);
     });
 
     // device visual tests on Sample Item Details Page

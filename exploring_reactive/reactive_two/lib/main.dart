@@ -6,7 +6,9 @@
 import 'dart:async';
 
 import 'package:catcher/catcher.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:reactive_two/src/app.dart';
 import 'package:reactive_two/src/infrastructure/app_exceptions_helper/catcher.dart';
 import 'package:reactive_two/src/infrastructure/app_vars.dart';
@@ -22,6 +24,13 @@ Future<void> main() async {
   // ensure that the Flutter SkyEngine has fully initialized before the
   // runZoneGuarded declaration
   WidgetsFlutterBinding.ensureInitialized();
+
+  // load font licenses
+  LicenseRegistry.addLicense(() async* {
+    final license = await rootBundle.loadString('google_fonts/OFL.txt');
+    yield LicenseEntryWithLineBreaks(['google_fonts'], license);
+  });
+
 
   // set up app logging
   guardVoided<dynamic>(() => initLogger());

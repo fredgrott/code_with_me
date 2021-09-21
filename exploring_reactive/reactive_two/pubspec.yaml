@@ -52,6 +52,8 @@ dev_dependencies:
   given_when_then: ^0.2.0
   # goldens utility
   golden_toolkit: ^0.10.0
+  # lib to assist in impl the Page object model pattern in testing
+  page_object: ^0.2.0
 
 
 
