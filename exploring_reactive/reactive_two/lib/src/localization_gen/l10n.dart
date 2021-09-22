@@ -59,6 +59,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Sample Items`
+  String get appListTitle {
+    return Intl.message(
+      'Sample Items',
+      name: 'appListTitle',
+      desc: 'The Title of List View Screen',
+      args: [],
+    );
+  }
+
+  /// `Item Details`
+  String get appListDetailTitle {
+    return Intl.message(
+      'Item Details',
+      name: 'appListDetailTitle',
+      desc: 'item details title',
+      args: [],
+    );
+  }
+
+  /// `More Information Here`
+  String get appListDetailBody {
+    return Intl.message(
+      'More Information Here',
+      name: 'appListDetailBody',
+      desc: 'item detail body',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get appSettingsTitle {
+    return Intl.message(
+      'Settings',
+      name: 'appSettingsTitle',
+      desc: 'settings title',
+      args: [],
+    );
+  }
+
+  /// `System Theme`
+  String get settingsSystemTheme {
+    return Intl.message(
+      'System Theme',
+      name: 'settingsSystemTheme',
+      desc: 'system theme title',
+      args: [],
+    );
+  }
+
+  /// `Light Theme`
+  String get settingsLightTheme {
+    return Intl.message(
+      'Light Theme',
+      name: 'settingsLightTheme',
+      desc: 'light theme title',
+      args: [],
+    );
+  }
+
+  /// `Dark Theme`
+  String get settingsDarkTheme {
+    return Intl.message(
+      'Dark Theme',
+      name: 'settingsDarkTheme',
+      desc: 'dark theme title',
+      args: [],
+    );
+  }
+
+  /// `SampleItem`
+  String get listTileTitle {
+    return Intl.message(
+      'SampleItem',
+      name: 'listTileTitle',
+      desc: 'sample item title list tile',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

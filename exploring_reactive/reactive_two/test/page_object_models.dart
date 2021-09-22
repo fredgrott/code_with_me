@@ -58,6 +58,15 @@ class MySettingsViewPageObject extends PageObject {
         of: this,
         matching: find.byKey(const Key("SettingsView.title")),
       );
+
+  Finder get systemTheme =>
+      find.descendant(of: this, matching: find.byKey(const Key("SystemTheme")));
+
+  Finder get lightTheme =>
+      find.descendant(of: this, matching: find.byKey(const Key("lightTheme")));
+
+  Finder get darkTheme =>
+      find.descendant(of: this, matching: find.byKey(const Key("darkTheme")));
 }
 
 class MyAppListDetailViewPageObject extends PageObject {
@@ -69,17 +78,22 @@ class MyAppListDetailViewPageObject extends PageObject {
 class MyListDetailViewPageObject extends PageObject {
   MyListDetailViewPageObject(Finder finder)
       : super(find.descendant(
-            of: finder, matching: find.byType(SampleItemDetailsView),));
+          of: finder,
+          matching: find.byType(SampleItemDetailsView),
+        ));
 
   Finder get title => find.descendant(
-      of: this, matching: find.byKey(const Key("SampleItemDetailsView.title")),);
+        of: this,
+        matching: find.byKey(const Key("SampleItemDetailsView.title")),
+      );
+
+  Finder get bodyItem => find.descendant(
+      of: this, matching: find.byKey(const Key("ListItemBody")),);
 }
 
-
-
 class HasText extends CustomMatcher {
-  HasText(String featureDescription, String featureName, Object? valueOrMatcher)
-      : super(featureDescription, featureName, valueOrMatcher);
+  HasText(dynamic matcher)
+      : super('Text data', 'data', matcher);
 
   @override
   String? featureValueOf(dynamic actual) {

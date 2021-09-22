@@ -1,6 +1,41 @@
 {
-  "appTitle": "reactive_two",
-  "@appTitle": {
-    "description": "The title of the application"
-  }
+    "appTitle": "reactive_two",
+    "@appTitle": {
+        "description": "The title of the application"
+    },
+    "appListTitle": "Sample Items",
+    "@appListTitle": {
+        "description": "The Title of List View Screen"
+
+    },
+    "appListDetailTitle": "Item Details",
+    "@appListDetailTitle": {
+        "description": "item details title"
+    },
+    "appListDetailBody": "More Information Here",
+    "@appListDetailBody": {
+        "description": "item detail body"
+    },
+    "appSettingsTitle": "Settings",
+    "@appSettingsTitle": {
+        "description": "settings title"
+    },
+    "settingsSystemTheme": "System Theme",
+    "@settingsSystemTheme": {
+        "description": "system theme title"
+    },
+    "settingsLightTheme": "Light Theme",
+    "@settingsLightTheme": {
+        "description": "light theme title"
+    },
+    "settingsDarkTheme": "Dark Theme",
+    "@settingsDarkTheme": {
+        "description": "dark theme title"
+    },
+    "listTileTitle": "SampleItem",
+    "@listTileTitle": {
+        "description": "sample item title list tile"
+    }
+
+
 }

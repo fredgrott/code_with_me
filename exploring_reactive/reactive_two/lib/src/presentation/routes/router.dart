@@ -11,8 +11,9 @@ import 'package:reactive_two/src/presentation/features/home/ui/sample_item_list_
 import 'package:reactive_two/src/presentation/features/settings/ui/settings_view.dart';
 
 
+// ignore: avoid_classes_with_only_static_members
 class MyRouter {
-  Route<dynamic> generateRoute(RouteSettings settings) {
+  static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case settingsRoute:
         return MaterialPageRoute<dynamic>(

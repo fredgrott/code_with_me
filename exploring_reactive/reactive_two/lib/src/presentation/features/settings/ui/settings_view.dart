@@ -3,6 +3,7 @@
 // license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:reactive_two/src/localization_gen/l10n.dart';
 import 'package:reactive_two/src/presentation/features/settings/viewmodels/settings_viewmodel.dart';
 
 
@@ -25,7 +26,7 @@ class SettingsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: Text(S.of(context).appSettingsTitle),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -38,18 +39,21 @@ class SettingsView extends StatelessWidget {
           value: viewModel.themeMode,
           // Call the updateThemeMode method any time the user selects a theme.
           onChanged: viewModel.updateThemeMode,
-          items: const [
+          items:  [
             DropdownMenuItem(
               value: ThemeMode.system,
-              child: Text('System Theme'),
+              child: Text(
+                S.of(context).settingsSystemTheme, key: const Key("SystemTheme"),),
             ),
             DropdownMenuItem(
               value: ThemeMode.light,
-              child: Text('Light Theme'),
+              child: Text(
+                S.of(context).settingsLightTheme, key: const Key("LightTheme"),),
             ),
             DropdownMenuItem(
               value: ThemeMode.dark,
-              child: Text('Dark Theme'),
+              child: Text(S.of(context).settingsDarkTheme, key: const Key("DarkTheme"),
+              ),
             ),
           ],
         ),

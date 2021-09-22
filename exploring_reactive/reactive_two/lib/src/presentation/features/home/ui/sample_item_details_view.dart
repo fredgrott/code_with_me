@@ -3,6 +3,7 @@
 // license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:reactive_two/src/localization_gen/l10n.dart';
 
 /// Displays detailed information about a SampleItem.
 class SampleItemDetailsView extends StatelessWidget {
@@ -17,10 +18,10 @@ class SampleItemDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Item Details'),
+        title: Text(S.of(context).appListDetailTitle),
       ),
-      body: const Center(
-        child: Text('More Information Here'),
+      body: Center(
+        child: Text( S.of(context).appListDetailBody, key: const Key("ListItemBody"),),
       ),
     );
   }

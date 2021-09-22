@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:reactive_two/src/domain/entities/sample_item.dart';
+import 'package:reactive_two/src/localization_gen/l10n.dart';
 import 'package:reactive_two/src/presentation/features/home/ui/sample_item_details_view.dart';
 import 'package:reactive_two/src/presentation/features/settings/ui/settings_view.dart';
 
@@ -26,7 +27,7 @@ class SampleItemListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sample Items'),
+        title: Text(S.of(context).appListTitle),
         actions: [
           IconButton(
             icon: const Icon(Icons.settings),
@@ -56,7 +57,7 @@ class SampleItemListView extends StatelessWidget {
           final item = items[index];
 
           return ListTile(
-            title: Text('SampleItem ${item.id}'),
+            title: Text('${S.of(context).listTileTitle} ${item.id}'),
             leading: const CircleAvatar(
               // Display the Flutter Logo image asset.
               foregroundImage: AssetImage('assets/images/flutter_logo.png'),
