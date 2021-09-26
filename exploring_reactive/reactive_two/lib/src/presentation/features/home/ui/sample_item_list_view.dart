@@ -30,6 +30,7 @@ class SampleItemListView extends StatelessWidget {
         title: Text(S.of(context).appListTitle),
         actions: [
           IconButton(
+            key: const Key("IconButtonSettings"),
             icon: const Icon(Icons.settings),
             onPressed: () {
               // Navigate to the settings page. If the user leaves and returns

@@ -1,0 +1,6 @@
+{
+  "appTitle": "skeletonapp_one",
+  "@appTitle": {
+    "description": "The title of the application"
+  }
+}

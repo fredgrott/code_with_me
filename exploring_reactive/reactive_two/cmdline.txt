@@ -47,3 +47,4 @@ flutter pub run intl_utils:generate
 
 
 flutter pub run flutter_native_splash:create
+

@@ -6,8 +6,7 @@
 // and depends upon completion of system UI stuff
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:reactive_two/src/presentation/features/settings/viewmodels/settings_viewmodel.dart';
 import 'package:reactive_two/src/services/settings_service.dart';
 
@@ -24,5 +23,4 @@ String appTitleSettingsTest = "Settings";
 String appTitleItemDetailTest = "Item Details";
 String appBodyItemDetailTest = "More Information Here";
 
-Brightness appBrightness = SchedulerBinding.instance!.window.platformBrightness;
-bool isDarkMode = appBrightness == Brightness.dark;
+

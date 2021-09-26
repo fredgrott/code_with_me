@@ -28,6 +28,8 @@ class MyApp extends StatelessWidget {
     //
     // The AnimatedBuilder Widget listens to the SettingsController for changes.
     // Whenever the user updates their settings, the MaterialApp is rebuilt.
+    // wrapped with container as we need this for goldens power testing
+    // ignore: avoid_unnecessary_containers
     return AnimatedBuilder(
       animation: settingsViewModel,
       builder: (BuildContext context, Widget? child) {
@@ -95,5 +97,7 @@ class MyApp extends StatelessWidget {
         );
       },
     );
+    
+    
   }
 }

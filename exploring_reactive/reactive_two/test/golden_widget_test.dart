@@ -6,26 +6,23 @@ import 'dart:ui';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
-import 'package:mocktail/mocktail.dart';
 import 'package:reactive_two/src/app.dart';
 import 'package:reactive_two/src/infrastructure/app_vars.dart';
-import 'package:reactive_two/src/presentation/features/home/ui/sample_item_details_view.dart';
 import 'package:reactive_two/src/presentation/features/home/ui/sample_item_list_view.dart';
-import 'package:reactive_two/src/presentation/features/settings/ui/settings_view.dart';
-import 'package:reactive_two/src/presentation/features/settings/viewmodels/settings_viewmodel.dart';
 
-// Need to Mock settingsViewModel
-class MockSettingsController extends Mock implements SettingsViewModel {}
+import 'app_fixtures.dart';
+import 'mygoldenswrapper.dart';
 
-
-// ignore: long-method
 void main() {
+
   // set up for all tests in this test suite
   setUpAll(() async {
     TestWidgetsFlutterBinding.ensureInitialized();
+    AppFixtures.setUp();
   });
 
   // tear down for all tests in this test suite
+  // ignore: no-empty-block
   tearDownAll(() async {});
 
   group('Basic Golden Tests ', () {
@@ -38,7 +35,9 @@ void main() {
     });
 
     testGoldens('DeviceBuilder-SampleItemListView ', (tester) async {
-      final builder = DeviceBuilder()
+      final builder = DeviceBuilder(
+        wrap: myGoldensWrapper(),
+      )
         ..overrideDevicesForAllScenarios(devices: [
           Device.phone,
           Device.iphone11,
@@ -49,63 +48,26 @@ void main() {
           iphonetwelvepromaxIOS,
         ])
         ..addScenario(
-          widget: SampleItemListView(navigatorKey: navigatorKey,),
+          widget: SampleItemListView(
+            navigatorKey: navigatorKey,
+          ),
           name: 'Sample Item List Page',
         );
       await tester.pumpDeviceBuilder(builder);
       await screenMatchesGolden(
-          tester, "Sample Item List Page multiple screens",);
-    });
-
-    // device visual tests on Sample Item Details Page
-    testGoldens('DeviceBuilder-SampleItemDetailsView ', (tester) async {
-      final builder = DeviceBuilder()
-        ..overrideDevicesForAllScenarios(devices: [
-          Device.phone,
-          Device.iphone11,
-          Device.tabletPortrait,
-          Device.tabletLandscape,
-          samsungEightAndroid,
-          samsungNineAndroid,
-          iphonetwelvepromaxIOS,
-        ])
-        ..addScenario(
-          widget: SampleItemDetailsView(navigatorKey: navigatorKey,),
-          name: 'Sample Item Details Page',
-        );
-      await tester.pumpDeviceBuilder(builder);
-      await screenMatchesGolden(
         tester,
-        "Sample Item Details Page multiple screens",
+        "Sample Item List Page multiple screens",
       );
-    });
-
-    // do a full device goldens test of SettingsView page
-    testGoldens('DeviceBuilder-SettingsView ', (tester) async {
-      final builder = DeviceBuilder()
-        ..overrideDevicesForAllScenarios(devices: [
-          Device.phone,
-          Device.iphone11,
-          Device.tabletPortrait,
-          Device.tabletLandscape,
-          samsungEightAndroid,
-          samsungNineAndroid,
-          iphonetwelvepromaxIOS,
-        ])
-        ..addScenario(
-          widget: SettingsView(navigatorKey: navigatorKey, viewModel: settingsViewModel,
-            
-          ),
-          name: 'Settings Page',
-        );
-      await tester.pumpDeviceBuilder(builder);
-      await screenMatchesGolden(tester, "Settings Page multiple screens");
     });
 
 
 
 
   });
+
+
+
+
 }
 
 // My Custom Device Defs, see

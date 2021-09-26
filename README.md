@@ -48,6 +48,8 @@ Note, I do in fact get a revenue cut for each Medium subscription which assists 
 
 ### Flutter DevOPS
 
+[Missing Flutter Best Practices](https://medium.com/p/missing-flutter-best-practices-72a1fa684d09)
+
 [Easy Mocking With Mocktail](https://medium.com/p/easy-mocking-with-mocktail-f3fd10a1eecd)
 
 [BDD Like Widget Testing](https://medium.com/p/bdd-like-widget-testing-bb95b12edac7)
