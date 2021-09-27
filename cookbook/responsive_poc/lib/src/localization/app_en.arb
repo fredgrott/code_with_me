@@ -1,0 +1,6 @@
+{
+  "appTitle": "responsive_poc",
+  "@appTitle": {
+    "description": "The title of the application"
+  }
+}
