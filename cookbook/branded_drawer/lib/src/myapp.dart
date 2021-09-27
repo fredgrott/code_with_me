@@ -2,7 +2,8 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-import 'package:branded_drawer/src/presentation/features/home/ui/drawermenu.dart';
+
+import 'package:branded_drawer/src/presentation/features/home/ui/mydrawermenu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.notoSansTextTheme(Theme.of(context).textTheme,)
           
       ),
-      home: const DrawerMenu(),
+      home: const MyDrawerMenu(),
     );
   }
 }

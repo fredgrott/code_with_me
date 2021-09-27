@@ -2,11 +2,39 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class DrawerMenu extends StatelessWidget {
-  const DrawerMenu({Key? key}) : super(key: key);
+class MyDrawerMenu extends StatefulWidget {
+  const MyDrawerMenu({Key? key}) : super(key: key);
+
+  @override
+  State<MyDrawerMenu> createState() => _MyDrawerMenuState();
+}
+
+class _MyDrawerMenuState extends State<MyDrawerMenu> {
+  late Image personAccountImage;
+  late Image accountHeaderImage;
+
+  @override
+  void initState() {
+    super.initState();
+
+    personAccountImage = Image.asset("assets/images/aleydon.jpg");
+    accountHeaderImage = Image.asset("assets/images/fundo.jpg");
+    
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    precacheImage(personAccountImage.image, context);
+    precacheImage(accountHeaderImage.image, context);
+    
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +45,8 @@ class DrawerMenu extends StatelessWidget {
           UserAccountsDrawerHeader(
             accountName: const Text('Someone Someone'),
             accountEmail: const Text('someone.someone@gmail.com'),
-            currentAccountPicture: const CircleAvatar(
-              backgroundImage: ExactAssetImage('assets/images/aleydon.jpg'),
+            currentAccountPicture: CircleAvatar(
+              backgroundImage: personAccountImage.image,
             ),
             otherAccountsPictures: const <Widget>[
               CircleAvatar(
@@ -30,9 +58,10 @@ class DrawerMenu extends StatelessWidget {
               ),
             ],
             onDetailsPressed: () {},
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage("assets/images/fundo.jpg"), fit: BoxFit.cover)),
+                    image: accountHeaderImage.image,
+                    fit: BoxFit.cover)),
           ),
           ListTile(
             title: const Text('Profile'),
