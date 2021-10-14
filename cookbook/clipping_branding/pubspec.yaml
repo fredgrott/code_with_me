@@ -1,4 +1,4 @@
-name: branded_drawer
+name: clipping_branding
 description: A new Flutter project.
 
 # Prevent accidental publishing to pub.dev.
@@ -11,6 +11,8 @@ environment:
 
 dependencies:
   flutter:
+    sdk: flutter
+  flutter_localizations:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
@@ -52,4 +54,5 @@ flutter_intl:
   arb_dir: lib/src/localization
   output_dir: lib/src/localization_gen
   use_deferred_loading: false
+
 

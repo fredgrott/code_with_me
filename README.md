@@ -4,7 +4,21 @@
 
 Like Code Labs but with more polish and more How-Tos from an expert Fluter app designer and developer perspective, as that should have been what Code Labs should be.
 
-As this is a mature front-end app market, so you guys and gals new to Flutter should have a code labs experience that is somewhat both developer and designer high professionally polished.  
+As this is a mature front-end app market, so you guys and gals new to Flutter should have a code labs experience that is somewhat both developer and designer high professionally polished.
+
+## Flutter Best Practices
+
+I am creating some Flutter Best Practices code samples and articles:
+
+[Flutter Best Practices](https://github.com/fredgrott/flutter_best_practices)
+
+[Flutter Test Best Practices](https://github.com/fredgrott/flutter_test_bestpractices)
+
+[Flutter Navigation Best Practices](https://github.com/fredgrott/flutter_nav_bestpractices)
+
+
+
+  
 
 ## About Me, Fred Grott
 
